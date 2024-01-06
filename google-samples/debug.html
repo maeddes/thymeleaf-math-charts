@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<body>
+  <form id="myForm">
+
+    <label for="xrange">x-Range</label>
+    <input name="xrange" type="text" maxlength="10" id="xrange" value="10" />
+    <label for="yrange">y-Range</label>
+    <input name="yrange" type="text" maxlength="10" id="yrange" value="10" />
+    <label for="steps">Graph 3</label>
+    <input name="steps" type="text" maxlength="10" id="steps" value="1" />
+
+    <br>
+
+    <label for="input1">Graph 1</label>
+    <input name="input1" type="text" maxlength="20" id="input1" value="x*x+2" />
+    <label for="input2">Graph 2</label>
+    <input name="input2" type="text" maxlength="20" id="input2" value="(x-2)**2-3" />
+    <label for="input3">Graph 3</label>
+    <input name="input3" type="text" maxlength="20" id="input3" value="0.5*x+1" />
+    <input type="submit" value="Draw!">
+
+  </form>
+  <div id="myPlot" style="width:100%;height:1000px"></div>
+
+  <script>
+
+    let exp1 = document.getElementById('input1').value;
+    let exp2 = document.getElementById('input2').value;
+    let exp3 = document.getElementById('input3').value;
+    let xrange = document.getElementById('xrange').value;
+    let yrange = document.getElementById('yrange').value;
+    let steps = document.getElementById('steps').value;   
+    console.log(steps);
+
+
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent the form from submitting to the server
+
+      exp1 = document.getElementById('input1').value;
+      exp2 = document.getElementById('input2').value;
+      exp3 = document.getElementById('input3').value;
+      xrange = document.getElementById('xrange').value;
+      yrange = document.getElementById('yrange').value;
+      steps = document.getElementById('steps').value; 
+      console.log("steps "+steps);
+      console.log("parseInt "+parseInt(steps));
+      console.log("parseFloat "+parseFloat(steps));
+
+      let i = 1;
+      let counter = parseFloat(steps);
+
+      console.log("steps "+steps);
+      console.log("parseInt "+(i+parseInt(steps)));
+      console.log("counter "+(i+counter));
+      console.log("parseFloat "+(i+parseFloat(steps)));
+
+      for (let x = -1 * xrange; x <= xrange; x = x + parseFloat(steps)) {
+        console.log(x)
+
+      }
+
+    });
+
+    
+
+
+  </script>
+
+</body>
+
+</html>
